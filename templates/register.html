@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="username"><b>Username</b></label> {{ register_form.user_name }}{% for error in register_form.user_name.errors %}
+            <p style="color: red;">{{ error }}</p>
+            {% endfor %}
+            <label for="email"><b>Email</b></label> {{ register_form.email }}{% for error in register_form.email.errors %}
+            <p style="color: red;">{{ error }}</p>
+            {% endfor %}
+
+            <label for="psw"><b>Password</b></label> {{ register_form.password }}{% for error in register_form.password.errors %}
+            <p style="color: red;">{{ error }}</p>
+            {% endfor %}
+
+            <label for="psw-repeat"><b>Repeat Password</b></label> {{ register_form.re_password}}{% for error in register_form.password.errors %}
+            <p style="color: red;">{{ error }}</p>
+            {% endfor %}
+            <hr>
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
